@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111; /* Slightly brighter background */
+            color: #FFD700; /* Gold text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #111; /* Slightly brighter background */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); /* Gold shadow */
+        }
+
+        h2 {
+            font-family: 'arial', serif;
+            color: #FFD700; /* Gold color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #FFD700; /* Gold border */
+            border-radius: 5px;
+            color: #FFD700; /* Gold text color */
+            background-color: #111; /* Slightly brighter background */
+        }
+
+        input[type="reset"], input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000; /* Black text */
+            background-color: #FFD700; /* Gold button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+
+        input[type="reset"]:hover, input[type="submit"]:hover {
+            background-color: #FFD700; /* Gold hover */
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>USER REGISTRATION</h2>
+    <form method="post" action="UserRegistration">
+        <p>Username <font color="#FF0000">*</font>
+            <input type="text" name="username" required>
+        </p>
+        <p>Password <font color="#FF0000">*</font>
+            <input type="password" name="password" required>
+        </p>
+        <div class="button-container">
+            <input type="reset" value="Reset">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</div>
+</body>
+</html>

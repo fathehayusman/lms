@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111; /* Slightly brighter background */
+            color: #FFD700;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #FFD700;
+            color: black;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure header stays above other content */
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .header .user-info {
+            font-size: 14px;
+            margin-right: 20px; /* Add some margin to separate from the right edge */
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #000;
+            color: #FFD700;
+            padding: 15px;
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #FFD700;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #FFD700;
+            color: black;
+        }
+
+        .content {
+            margin-left: 270px; /* Adjusted to match sidebar width */
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #111; /* Main content area background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px; /* Compensate for the fixed header */
+            overflow-y: auto; /* Allow content to scroll if it exceeds viewport */
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: #000; /* Slightly brighter background for sections */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            margin: 20px auto; /* Center the container horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the content inside the container */
+        }
+
+        h2, h3 {
+            margin-bottom: 10px;
+            font-size: 27px;
+            color: #FFD700;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #FFD700;
+            font-family: 'Arial', sans-serif;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            background-color: #333;
+            color: #FFD700;
+        }
+
+        input[type="reset"], input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        input[type="reset"]:hover, input[type="submit"]:hover {
+            background-color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                margin-left: 0;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Return Book</h1>
+    <div class="user-info">
+        Logged in as: <strong>Student</strong>
+    </div>
+</div>
+
+<div class="sidebar">
+    <nav>
+        <a href="homeStudent.html"><img src="icons/home.png" alt="Home"> Home</a>
+        <a href="reserveBook.html"><img src="icons/reserve.png" alt="Reserve Book"> Reserve Book</a>
+        <a href="extendBook.html"><img src="icons/extend.png" alt="Extend Due Date"> Extend Due Date</a>
+        <a href="returnBook.html"><img src="icons/return.png" alt="Return Book"> Return Book</a>
+        <a href="fine.html"><img src="icons/pay.png" alt="Pay Fine"> Pay Fine</a>
+        <a href="LogoutServlet"><img src="icons/logout.png" alt="Log Out"> Log Out</a>
+    </nav>
+</div>
+
+<div class="content">
+    <div class="container">
+        <h2>Return Book</h2>
+        <form action="ReturnBookServlet" method="post">
+            <label for="studentId">Student ID:</label>
+            <input type="text" id="studentId" name="studentId" required>
+
+            <label for="bookId">Book ID:</label>
+            <input type="number" id="bookId" name="bookId" required>
+
+            <input type="submit" value="Return Book">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
